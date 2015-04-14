@@ -8,6 +8,7 @@ var browserify = require('browserify-middleware');
 
 var routes = require('./routes/index');
 var lumine = require('./routes/lumine');
+var weatherTiles = require('./routes/weather-tiles');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/lumine', lumine);
+app.use('/weather-tiles', weatherTiles);
 
 app.get('/js/lumine.js', browserify('./node_modules/lumine/index.js'));
 
